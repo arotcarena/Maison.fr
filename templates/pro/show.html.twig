@@ -1,0 +1,13 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+    {{ pro.businessName }} par maison.fr 
+{% endblock %}
+
+{% block body %}
+    <h1>{{ pro.businessName }}</h1>
+
+    {% if app.user is same as pro.user and pro.user is not null %}
+        <a href="{{ path('pro_edit', {id: pro.id}) }}">éditer</a>
+    {% endif %}
+{% endblock %}

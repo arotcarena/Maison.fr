@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Connexion à votre compte sur maison.fr{% endblock %}
+
+{% block body %}
+<div class="container mb-4 mt-4">
+
+        {#
+            Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
+            See https://symfony.com/doc/current/security/remember_me.html
+
+            <div class="checkbox mb-3">
+                <label>
+                    <input type="checkbox" name="_remember_me"> Remember me
+                </label>
+            </div>
+        #}
+    
+
+
+    <div style="margin-left: 10%; width: 30%; background-color: rgb(241, 179, 45);; padding-left: 3%; padding-right: 3%; padding-top: 1%; padding-bottom: 5%;">
+        <h2 style="margin-bottom: 30px;">Connectez-vous à votre compte !</h2>
+
+        {% if error %}
+            <div class="alert alert-danger">
+                {{ error.message }}
+                {% if viewNotConfirmed %}
+                    <p><a href="{{ path('security_newConfirmationEmail') }}" style="color: black;">cliquez ici pour recevoir un nouveau lien de confirmation</a></p>
+                {% endif %} 
+            </div>
+        {% endif %}
+
+        {{ form_start(form) }}
+
+        {% set remember_me = form_row(form._remember_me) %}
+        {{ form_widget(form) }}
+
+        {% if view2FA %}
+            <a href="{{ path('security_newCode2fa')}}" style="color: black; margin-top: 0px;">demander un autre code</a>
+        {% else %}
+            <a href="{{ path('security_forgottenPassword') }}" style="color: black;">mot de passe oublié ?</a>
+        {% endif %}
+
+        <p class="mt-2">
+        {% autoescape false %}
+            {{ remember_me }}
+        {% endautoescape %}
+        </p>
+
+        <button style="color: white; font-weight: 500; background-color: rgba(36, 129, 13, 0.842); border-radius: 5px; padding-left: 9px; padding-right: 9px; padding-top: 2px; padding-bottom: 2px;" type="submit">
+            Connexion
+        </button>
+
+
+        {{ form_end(form) }}
+
+        <div class="mt-4">
+            <a style="color: black;" href="{{ path('register_index') }}">Pas encore inscrit ? Cliquez ici pour référencer votre société !</a>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

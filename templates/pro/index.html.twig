@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ category.name }} à {{ city.fullName }} avec maison.fr{% endblock %}
+
+{% block my_javascript %}
+    <script src="/javascript/pro/index.js" type="module" defer></script>
+{% endblock %}
+
+{% block body %}
+    <div style="background-color: rgba(238, 232, 232, 0.925)">
+        <div class="container" style="display: flex; align-items: start; padding-top: 20px;">
+            <div style="background-color: white; width: 39%; margin-right: 15px;">
+                <div style="width: 100%; padding: 10px;">
+                    <h3>{{ category.name }} à {{ city.name }}</h3>
+                    {% include "pro/_search_form.html.twig" %}
+                    <hr style="margin-top: 20px;">
+                    <p style="font-size: 0.9em;"><strong>Professionnels ? </strong><br><a href="{{ path('register_index') }}" style="color: black; font-weight: 200;">Profitez du référencement gratuit <strong><i class="bi bi-arrow-right"></i></strong></a></p>
+                </div>
+            </div>
+            <div style="width: 100%; padding-left: 20px;">
+                <div style="width: 100%;">
+                    {% include "pro/_breadcrumb.html.twig" %}
+
+                    <h1 style="font-size: 2em; margin-top: 20px;">Résultat de votre recherche "{{ category.name }}" à {{ city.fullName }}</h1>
+                    {% if count > 0 %}
+                        <p style="margin-bottom: 50px;"><strong>{{ count }}</strong> professionnel{% if count > 1 %}s{% endif %} correspond{% if count > 1 %}ent{% endif %} à votre recherche à <strong>{{ city.name }}</strong></p>
+                    {% else %}
+                        <p>Nous sommes désolés, aucun professionnel ne correspond à votre recherche à <strong>{{ city.name }}</strong></p>
+                    {% endif %}
+                    
+                    <div id="pro-listing" data-category="{{ category.id }}" data-city="{{ city.id }}" data-categoryname="{{ category.name }}" data-count="{{ count }}">
+                        {% for pro in pros %}
+                            {% include "pro/_card.html.twig" %}
+                        {% endfor %}
+                    </div>
+                    <div id="loader">Chargement...</div>
+                </div> 
+            </div>
+            </div>
+        </div>
+    </div>
+    {% include "pro/_foot.html.twig" %}
+
+
+    <template id="pro-card-template">
+        {% include "pro/_card_template.html.twig" %}
+    </template>
+
+{% endblock %}

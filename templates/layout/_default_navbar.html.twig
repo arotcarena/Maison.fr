@@ -1,0 +1,24 @@
+<nav class="navbar">
+    <div class="ms-3">
+        <a href="{{ path('home') }}" id="button-home">
+            <img src="/images/logo/maison.png" alt="maison.fr">
+            <br>
+            <span class="ms-1">Le choix des meilleurs pros !</span>
+        </a>
+    </div>
+    <div id="hour" style="color: rgba(36, 129, 13, 0.842); font-weight: bold;"></div>
+    <div class="me-4">
+        {% if app.user %} 
+            {% if app.user.pro %}
+               {% set username = app.user.pro.businessName %}
+            {% else %}
+                {% set username = app.user.email %}
+            {% endif %}
+            <a id="button-ref" href="{{ path('account_index') }}">mon profil : {{ username }}</a>
+            <a id="button-ref" href="{{ path('security_logout') }}">Déconnexion</a> 
+        {% else %}
+            <a id="button-ref" href="{{ path('register_index') }}">Référencez votre société</a> 
+            <a id="button-ref" href="{{ path('security_login') }}">Connectez-vous</a> 
+        {% endif %}
+    </div>
+</nav>

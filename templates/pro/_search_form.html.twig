@@ -1,0 +1,21 @@
+{{ form_start(form) }}
+
+{{ form_row(form.category, {
+    label: false,
+    attr: {
+        style: 'border: solid grey 1px; padding-top: 9px; padding-bottom: 9px;'
+    }
+}) }}
+
+{{ form_row(form.city, {
+    label: false,
+    attr: {
+        style: 'border: solid grey 1px; padding-top: 9px; padding-bottom: 9px;'
+    }
+}) }}
+
+<button class="my-button" style="padding-top: 6px; padding-bottom: 6px; width: 100%; background-color: rgba(36, 129, 13, 0.842); border-radius: 3px; color: white; font-weight: 500; border-color: rgba(36, 129, 13, 0.842);">
+    Je modifie ma recherche
+</button>
+
+{{ form_end(form) }}

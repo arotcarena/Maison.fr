@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block my_javascript %}
+    <script src="/javascript/index.js" type="module" defer></script>
+{% endblock %}
+
+{% block body %}
+    <div class="container" style="margin-left: 29%; margin-top: 4.5%;">
+        <h1 id="main-title">Prenez RDV avec un pro de l'Habitat</h1>
+
+
+        <form id="home-form" action="{{ path('home') }}" method="post" style="display: flex; align-items: start;">
+            <input id="category" name="category" placeholder="Que recherchez-vous ?" autocomplete="off" class="input-category {{ errors.category is defined ? 'is-invalid': '' }}">
+            <input id="city" name="city" placeholder="Où ?" autocomplete="off" class="input-city {{ errors.category is defined ? 'is-invalid': '' }}">
+            <input type="hidden" name="_token" value="{{ csrf_token('home-form') }}"/>
+            <button type="submit" id="homeform-button" class="ms-2">Rechercher</button>
+        </form>
+        <div id="sub-form" style="display: flex; align-items: start;">
+            <div style="width: 300px;">
+                <div id="category-error" style="color: red; font-weight: 200;" class="ms-3">{{ errors.category ?? '' }}</div>
+                <div id="category-loader" class="ms-4"></div>
+                <div id="category-options-list" class="option-list"></div>
+            </div>
+            <div style="width: 300px;">
+                <div id="city-error" style="color: red; font-weight: 200;" class="ms-3">{{ errors.city ?? '' }}</div>
+                <div id="city-loader" class="ms-2"></div>
+                <div id="city-options-list" class="option-list"></div>
+            </div>
+        </div>
+       
+
+        <div id="under" class="text-secondary mt-3" style="font-size: 0.8em;">
+            Recherches fréquentes : peindre ma chambre, réparer une fuite d'eau, rénovation
+        </div>
+        
+        
+    </div>
+
+    <div style="background-color: rgba(238, 232, 232, 0.925); margin-top: 110px; padding-top: 40px; height: 340px;">
+        <h3 style="text-align: center; font-size: 1.5em;">Un service de prise de RDV recommandé !</h3>
+    </div>
+
+    <div style="padding-top: 90px; height: 360px;">
+        <h3 style="text-align: center; font-size: 1.4em;">Les derniers rendez-vous pour des travaux</h3>
+    </div>
+
+
+    <!-- templates -->
+
+    <template id="load-layout">
+        <p id="load" class="text-secondary" style="font-size: 0.8em; display: none;">...chargement</p>
+    </template>
+
+    <template id="option-layout">
+        <p style="margin: 0px; height: 40 px; padding: 5%; vertical-align: center;"></p>
+    </template>
+{% endblock %}

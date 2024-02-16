@@ -1,0 +1,135 @@
+.navbar {
+    display: flex;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.192);
+}
+
+#button-home {
+    text-decoration: none;
+    color: black;
+}
+
+
+
+#button-ref {
+    font-size: 0.9em;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    background-color: rgba(36, 129, 13, 0.842);
+    border-radius: 5px;
+    padding-left: 9px;
+    padding-right: 9px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+#button-ref:hover {
+    background-color: rgba(25, 92, 9, 0.842);
+}
+
+#home-container {
+    margin-left: 30%;
+}
+
+#main-title {
+    margin-top: 80px;
+    margin-bottom: 60px;
+    font-size: 2.5em;
+}
+
+
+#homeform-button {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    background-color: rgba(36, 129, 13, 0.842);
+    border-color: rgba(36, 129, 13, 0.842);
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    border-radius: 3px;
+    font-size: 1.3em;
+    height: 50px;
+    width: 140px;
+}
+#homeform-button:hover {
+    background-color: rgba(25, 92, 9, 0.842);
+}
+
+#mypersobutton {
+    padding-top: 6px; 
+    padding-bottom: 6px; 
+    width: 100%; 
+    background-color: rgba(36, 129, 13, 0.842); 
+    border-radius: 3px; 
+    color: white; 
+    font-weight: 500; 
+    border-color: rgba(36, 129, 13, 0.842);
+}
+
+#mypersobutton:hover {
+    background-color: rgba(13, 44, 5, 0.842);
+}
+
+
+.subtext {
+    font-size: 0.8em;
+    margin-top: 5px;
+}
+
+
+.suggest-option-selected {
+    background-color: rgba(36, 129, 13, 0.842);
+    color: white;
+}
+
+#home-form .input-category {
+    border: solid grey 1px; 
+    border-radius: 3px; 
+    padding: 8px; 
+    height: 50px; 
+    width: 300px; 
+    font-weight: 400; 
+    color: black; 
+    padding-left: 15px;
+}
+
+#home-form .input-city {
+    border: solid grey 1px; 
+    border-left: solid white;
+    border-radius: 3px; 
+    padding: 8px; 
+    height: 50px; 
+    width: 300px; 
+    font-weight: 400; 
+    color: black; 
+    padding-left: 15px;
+}
+
+.is-invalid {
+    border-color: red!important;
+    color: red!important;
+}
+
+.is-focus {
+    border-bottom: solid  rgb(34, 117, 13) 3px!important;
+    outline: none;
+}
+
+.option-list {
+    margin-top: 0%;
+    cursor: pointer;
+    width: 300px;
+    font-size: 0.9em;
+    color: rgba(83, 83, 83, 0.877);
+}
+
+.options-border {
+    border-bottom: solid rgba(206, 202, 202, 0.438) 1px;
+    border-left: solid rgba(206, 202, 202, 0.438) 1px;
+    border-right: solid rgba(206, 202, 202, 0.438) 1px;
+}
+
+.red {
+    color: red;
+}

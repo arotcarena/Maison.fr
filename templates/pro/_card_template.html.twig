@@ -1,0 +1,29 @@
+<div class="pro-card" style="background-color: white; display: flex; margin-bottom: 50px;">
+    <div style="width: 30%;">
+        {# {% if pro.firstPicture is not null %} #}
+            <img id="pro-img" style="max-width: 100%" src="{# {{ vich_uploader_asset(pro.firstPicture, 'imageFile') | imagine_filter('my_thumb') }} #}" alt="photo de présentation du professionnel">
+        {# {% endif %} #}
+    </div>
+    <div style="width: 100%;">
+        <h3 id="business-name" style="font-size: 1.3em; margin: 10px;">{# {{ pro.businessName }} #}</h3>
+        <div style="padding: 10px; background-color: rgba(238, 232, 232, 0.4); width: 100%; display: flex;">
+            <p style="width: 40%;">
+                <strong id="category-name">{#{{ category.name }}#}</strong>
+            </p>
+            <p id="show-categories" style="width=100%;">
+                {# {{ pro.showCategories }} #}
+            </p>
+        </div>
+        <div style="display: flex;">
+            <div style="width: 50%; border-right: solid rgba(238, 232, 232, 1) 1px; margin-top: 10px;">
+            <br><br>
+            </div>
+            <div style="width: 50%;">
+            <br><br>
+            </div>
+        </div>
+    </div>
+    <a id="show-link" href="{#{{ path('pro_show', {id: pro.id}) }}#}" style="text-decoration: none; color: black;">
+        Voir plus
+    </a>
+</div>
